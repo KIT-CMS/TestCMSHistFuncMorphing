@@ -3,7 +3,7 @@
 ## Setting up morphed datacard
 
 ```bash
-testMorph; mv test_morph.root CombineHarvester/TestCMSHistFuncMorphing/shapes/
+create_morphing_test.py; mv test_morph.root CombineHarvester/TestCMSHistFuncMorphing/shapes/; testMorph
 ```
 
 ## Creating workspace
