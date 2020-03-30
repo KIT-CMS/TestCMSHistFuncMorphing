@@ -17,7 +17,7 @@ combineTool.py -M T2W -o "ws.root" -i output_testMorph/
 ```bash
 for m in 5 10 12.5 15 20 25
 do
-  PostFitShapesFromWorkspace -m ${m} -w output_testMorph/ws.root -o output_testMorph/prefit_shapes_${m}.root > ${m}.log
+  PostFitShapesFromWorkspace --freeze MH=${m} -w output_testMorph/ws.root -o output_testMorph/prefit_shapes_${m}.root > ${m}.log
 done
 ```
 
