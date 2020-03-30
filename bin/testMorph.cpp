@@ -41,7 +41,7 @@ int main(int argc, char **argv) {
 
   // Define program options
   string output_folder = "output_testMorph";
-  string base_path = string(getenv("CMSSW_BASE")) + "/src/CombineHarvester/MSSMvsSMRun2Legacy/shapes/";
+  string base_path = string(getenv("CMSSW_BASE")) + "/src/CombineHarvester/TestCMSHistFuncMorphing/shapes/";
 
   // Create combine harverster object
   ch::CombineHarvester cb;

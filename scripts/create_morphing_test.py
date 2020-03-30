@@ -1,3 +1,6 @@
+#!/usr/bin/env python
+# -*- coding: utf-8 -*-
+
 import ROOT
 
 f = ROOT.TFile.Open("test_morph.root","recreate")
@@ -6,19 +9,20 @@ f.mkdir("test")
 f.cd("test")
 data = ROOT.TH1D("data_obs","data_obs",25,0.0,25.0)
 signatures = {
-     5 : [4.0,0.0,0.0,0.0,1.0],
-    20 : [4.0,0.0,0.0,0.0,1.0],
+     5 : [0.0,0.0,4.0,8.0,4.0,0.0,0.0],
+    20 : [1.0,2.0,3.0,4.0,3.0,2.0,1.0],
 }
 norms = {
-     5 : 1.0,
+     5 : 3.0,
     20 : 1.0,
 }
 sighists = {}
-for p,m in zip(signatures,signatures):
+for m in signatures:
     sighists[m] = data.Clone()
     sighists[m].SetName("H%s"%str(m))
     sighists[m].SetTitle("H%s"%str(m))
-    bins = range(p-2,p+3)
+    nsig = len(signatures[m])
+    bins = range(m-nsig/2,m+nsig/2+1)
     for b,sig in zip(bins,signatures[m]):
         sighists[m].SetBinContent(b,sig)
     sighists[m].Scale(norms[m])
